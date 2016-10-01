@@ -228,8 +228,8 @@ must set to 0 in release version*/
 #define HWIFI_DEBUG(fmt, arg...)    \
     do {                            \
         if (HWIFI_DEBUG_CONDTION()){                                   \
-            DEFINE_PREFIX_POST_ARRAY(buf_pre, buf_post)    \
-            print_log(KERN_DEBUG"[WIFI][DBG]%s"fmt"%s\n", buf_pre, ##arg, buf_post);\
+            DEFINE_PREFIX_POST_ARRAY(buf_pre, buf_post)    \6
+            print_log(KERN_ERR"[WIFI][DBG]%s"fmt"%s\n", buf_pre, ##arg, buf_post);\
             CHR_LOG(CHR_LOG_DEBUG, CHR_LOG_TAG_WIFI, KERN_DEBUG"[WIFI][WARN]%s"fmt"%s\n",buf_pre, ##arg,buf_post); \
         }       \
     } while(0)
@@ -238,7 +238,7 @@ must set to 0 in release version*/
     do {                            \
         if (loglevel >= LOG_LEVEL_INFO){            \
             DEFINE_PREFIX_POST_ARRAY(buf_pre, buf_post)    \
-            print_log(KERN_DEBUG"[WIFI][INFO]%s"fmt"%s\n", buf_pre, ##arg, buf_post);\
+            print_log(KERN_ERR"[WIFI][INFO]%s"fmt"%s\n", buf_pre, ##arg, buf_post);\
             CHR_LOG(CHR_LOG_INFO, CHR_LOG_TAG_WIFI, KERN_DEBUG"[WIFI][WARN]%s"fmt"%s\n",buf_pre, ##arg,buf_post); \
         }       \
     } while(0)
@@ -247,7 +247,7 @@ must set to 0 in release version*/
     do {                            \
         if (loglevel >= LOG_LEVEL_WARNING){             \
             DEFINE_PREFIX_POST_ARRAY(buf_pre, buf_post)    \
-            print_log(KERN_ALERT"[WIFI][WARN]%s"fmt"%s\n", buf_pre, ##arg, buf_post);\
+            print_log(KERN_ERR"[WIFI][WARN]%s"fmt"%s\n", buf_pre, ##arg, buf_post);\
             CHR_LOG(CHR_LOG_WARN, CHR_LOG_TAG_WIFI, KERN_ALERT"[WIFI][WARN]%s"fmt"%s\n",buf_pre, ##arg,buf_post); \
         }       \
     } while(0)
@@ -276,7 +276,7 @@ must set to 0 in release version*/
     do {                            \
         if (loglevel >= LOG_LEVEL_DEBUG){                                     \
             DEFINE_PREFIX_POST_ARRAY(buf_pre, buf_post)    \
-            print_log(KERN_DEBUG"[WIFI][V]%s"fmt"%s\n", buf_pre, ##arg, buf_post);\
+            print_log(KERN_ERR"[WIFI][V]%s"fmt"%s\n", buf_pre, ##arg, buf_post);\
         }                                                                       \
     } while(0)
 #else
@@ -298,7 +298,7 @@ must set to 0 in release version*/
     do {                            \
         if (loglevel >= LOG_LEVEL_ERROR){       \
             DEFINE_PREFIX_POST_ARRAY(buf_pre, buf_post)    \
-            print_log(KERN_ALERT "[WIFI][ERR]%s"fmt"%s\n", buf_pre, ##arg, buf_post);\
+            print_log(KERN_ERR "[WIFI][ERR]%s"fmt"%s\n", buf_pre, ##arg, buf_post);\
             CHR_LOG(CHR_LOG_ERROR, CHR_LOG_TAG_WIFI, KERN_ALERT"[WIFI][ERR]%s"fmt"%s\n",buf_pre, ##arg,buf_post); \
         }           \
     } while(0)
@@ -309,7 +309,7 @@ must set to 0 in release version*/
         if (unlikely(!(cond)))            \
         {                                  \
             DEFINE_PREFIX_POST_ARRAY(buf_pre, buf_post)    \
-            print_log(KERN_ALERT "[WIFI]%s ASSERT Failed!!!cond:%s %s", buf_pre, #cond, buf_post);\
+            print_log(KERN_ERR "[WIFI]%s ASSERT Failed!!!cond:%s %s", buf_pre, #cond, buf_post);\
             BUG();              \
         }                       \
     }                           \
@@ -321,7 +321,7 @@ must set to 0 in release version*/
         if (unlikely((cond)))            \
         {                                  \
             DEFINE_PREFIX_POST_ARRAY(buf_pre, buf_post)    \
-            print_log(KERN_ALERT "[WIFI]%s ASSERT Failed!!!cond:%s%s", buf_pre, #cond, buf_post);\
+            print_log(KERN_ERR "[WIFI]%s ASSERT Failed!!!cond:%s%s", buf_pre, #cond, buf_post);\
             BUG();              \
         }                       \
     }                           \
