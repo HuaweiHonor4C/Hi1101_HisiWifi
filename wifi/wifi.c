@@ -111,13 +111,13 @@ static const char SUPPLICANT_NAME[]     = "wpa_supplicant";
 static const char SUPP_PROP_NAME[]      = "init.svc.wpa_supplicant";
 static const char P2P_SUPPLICANT_NAME[] = "p2p_supplicant";
 static const char P2P_PROP_NAME[]       = "init.svc.p2p_supplicant";
-static const char SUPP_CONFIG_TEMPLATE[]= "/system/etc/wifi/wpa_supplicant.conf";
-static const char SUPP_CONFIG_FILE[]    = "/data/misc/wifi/wpa_supplicant.conf";
-static const char P2P_CONFIG_FILE[]     = "/data/misc/wifi/p2p_supplicant.conf";
+static const char SUPP_CONFIG_TEMPLATE[]= "/system/etc/wifi/wpa_supplicant_hisi.conf";
+static const char SUPP_CONFIG_FILE[]    = "/system/etc/wifi/wpa_supplicant_hisi.conf";
+static const char P2P_CONFIG_FILE[]     = "/system/etc/wifi/p2p_supplicant.conf";
 static const char CONTROL_IFACE_PATH[]  = "/data/misc/wifi/sockets";
 static const char MODULE_FILE[]         = "/proc/modules";
 
-static const char IFNAME[]              = "IFNAME=";
+static const char IFNAME[]              = "IFNAME=wlan0";
 #define IFNAMELEN			(sizeof(IFNAME) - 1)
 static const char WPA_EVENT_IGNORE[]    = "CTRL-EVENT-IGNORE ";
 
